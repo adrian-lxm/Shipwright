@@ -51,8 +51,8 @@ jobs:
         cmake --build build-cmake --config Release --target GenerateSohOtr
     - uses: actions/upload-artifact@v4
       with:
-        name: soh.o2r
-        path: soh.o2r
+        name: soh.otr
+        path: soh.otr
         retention-days: 1
 
   build-linux:
@@ -110,7 +110,7 @@ jobs:
     - name: Download soh.otr
       uses: actions/download-artifact@v4
       with:
-        name: soh.o2r
+        name: soh.otr
     - name: Build SoH
       run: |
         export PATH="/usr/lib/ccache:/usr/local/opt/ccache/libexec:$PATH"
