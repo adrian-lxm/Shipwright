@@ -21,7 +21,7 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y $(cat .github/workflows/apt-deps.txt)
+        sudo apt-get install -y $(cat .github/workflows/apt-deps.txt) libzip-dev
     - name: Cache build folders
       uses: actions/cache@v4
       with:
