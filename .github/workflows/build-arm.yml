@@ -117,14 +117,14 @@ jobs:
         export PATH="/usr/lib/ccache:/usr/local/opt/ccache/libexec:$PATH"
         cmake --no-warn-unused-cli -H. -Bbuild-cmake -GNinja -DCMAKE_BUILD_TYPE:STRING=Release -DBUILD_REMOTE_CONTROL=1
         cmake --build build-cmake --config Release -j$(nproc)
-        (cd build-cmake && cpack -G External)
+        cd build-cmake
+        ls
 
         mv README.md readme.txt
-        mv build-cmake/*.appimage soh.appimage
     - name: Upload build
       uses: actions/upload-artifact@v4
       with:
         name: soh-linux-arm64
         path: |
-          soh.appimage
+          soh.elf
           readme.txt
