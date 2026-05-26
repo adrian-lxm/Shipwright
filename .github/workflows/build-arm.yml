@@ -118,10 +118,10 @@ jobs:
         cmake --no-warn-unused-cli -H. -Bbuild-cmake -GNinja -DCMAKE_BUILD_TYPE:STRING=Release -DBUILD_REMOTE_CONTROL=1
         cmake --build build-cmake --config Release -j$(nproc)
         cd build-cmake
-        ls
+        ls soh
     - name: Upload build
       uses: actions/upload-artifact@v4
       with:
         name: soh-linux-arm64
         path: |
-          soh/
+          soh/soh.elf
